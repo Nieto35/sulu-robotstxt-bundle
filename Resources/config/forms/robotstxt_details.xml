@@ -5,7 +5,7 @@
     <key>robotstxt_details</key>
 
     <properties>
-        <property name="content" type="textarea" mandatory="true">
+        <property name="content" type="text_area" mandatory="true">
             <meta>
                 <title>robotstxt.content</title>
                 <info_text lang="en">The full content of the robots.txt file for this webspace (User-agent, Disallow, Allow, Sitemap, etc.).</info_text>
