@@ -7,7 +7,7 @@ read/subscribe to the following resources:
 
  -  [The PSR-2 Coding Standard](http://www.php-fig.org/psr/psr-2/)
 
-If you are working on new features or refactoring [create a proposal](https://github.com/bitExpert/sulu-securitytxt-bundle/issues/new).
+If you are working on new features or refactoring [create a proposal](https://github.com/bitExpert/sulu-robotstxt-bundle/issues/new).
 
 ## Reporting Potential Security Issues
 
@@ -32,8 +32,8 @@ To run tests:
 1. Clone the repository:
 
 ```console
-$ git clone git@github.com:bitExpert/sulu-securitytxt-bundle.git
-$ cd sulu-securitytxt-bundle
+$ git clone git@github.com:bitExpert/sulu-robotstxt-bundle.git
+$ cd sulu-robotstxt-bundle
 ```
 
 2. Install dependencies via composer:
@@ -79,25 +79,25 @@ Your first step is to establish a public repository from which we can pull your 
 We recommend using [GitHub](https://github.com), as that is where the component is already hosted.
 
 1. Setup a [GitHub account](http://github.com/), if you haven't yet
-2. Fork the repository (http://github.com/bitExpert/sulu-securitytxt-bundle)
+2. Fork the repository (http://github.com/bitExpert/sulu-robotstxt-bundle)
 3. Clone the canonical repository locally and enter it.
 
 ```console
-$ git clone git://github.com:bitExpert/sulu-securitytxt-bundle.git
-$ cd sulu-securitytxt-bundle
+$ git clone git://github.com:bitExpert/sulu-robotstxt-bundle.git
+$ cd sulu-robotstxt-bundle
 ```
 
 4. Add a remote to your fork; substitute your GitHub username in the command
    below.
 
 ```console
-$ git remote add {username} git@github.com:{username}/sulu-securitytxt-bundle.git
+$ git remote add {username} git@github.com:{username}/sulu-robotstxt-bundle.git
 $ git fetch {username}
 ```
 
 ### Keeping Up-to-Date
 
-Periodically, you should update your fork or personal repository to match the canonical sulu-securitytxt-bundle repository.
+Periodically, you should update your fork or personal repository to match the canonical sulu-robotstxt-bundle repository.
 Assuming you have setup your local repository per the instructions above, you can do the following:
 
 ```console
@@ -147,7 +147,7 @@ Delta compression using up to 2 threads.
 Compression objects: 100% (18/18), done.
 Writing objects: 100% (20/20), 8.19KiB, done.
 Total 20 (delta 12), reused 0 (delta 0)
-To ssh://git@github.com/{username}/sulu-securitytxt-bundle.git
+To ssh://git@github.com/{username}/sulu-robotstxt-bundle.git
    b5583aa..4f51698  HEAD -> master
 ```
 

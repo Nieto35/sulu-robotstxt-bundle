@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Sulu Securitytxt bundle.
+ * This file is part of the Sulu Robotstxt bundle.
  *
  * (c) bitExpert AG
  *
@@ -9,57 +9,52 @@
  */
 declare(strict_types=1);
 
-namespace BitExpert\Sulu\SecuritytxtBundle\Controller\Admin;
+namespace BitExpert\Sulu\RobotstxtBundle\Controller\Admin;
 
-use BitExpert\Sulu\SecuritytxtBundle\Common\DoctrineListRepresentationFactory;
-use BitExpert\Sulu\SecuritytxtBundle\Entity\Securitytxt;
-use BitExpert\Sulu\SecuritytxtBundle\Repository\SecuritytxtRepository;
+use BitExpert\Sulu\RobotstxtBundle\Common\DoctrineListRepresentationFactory;
+use BitExpert\Sulu\RobotstxtBundle\Entity\Robotstxt;
+use BitExpert\Sulu\RobotstxtBundle\Repository\RobotstxtRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 /**
- * @phpstan-type SecuritytxtData array{
+ * @phpstan-type RobotstxtData array{
  *     id: int|null,
  *     webspace_key: string|null,
- *     contact: string,
- *     expires: string,
- *     encryption: string|null,
- *     acknowledgments: string|null,
- *     policy: string|null,
- *     hiring: string|null,
+ *     content: string,
  * }
  */
 #[Route('/admin/api')]
-class SecuritytxtAdminController extends AbstractController
+class RobotstxtAdminController extends AbstractController
 {
     public function __construct(
-        private readonly SecuritytxtRepository $repository,
+        private readonly RobotstxtRepository $repository,
         private readonly DoctrineListRepresentationFactory $doctrineListRepresentationFactory,
     ) {
     }
 
-    #[Route(path: '/securitytxt/{id}', name: 'bitexpert.get_securitytxt', methods: ['GET'])]
+    #[Route(path: '/robotstxt/{id}', name: 'bitexpert.get_robotstxt', methods: ['GET'])]
     public function getAction(int $id): Response
     {
         $entity = $this->repository->findById($id);
-        if (!$entity instanceof Securitytxt) {
+        if (!$entity instanceof Robotstxt) {
             throw $this->createNotFoundException();
         }
 
         return $this->json($this->getDataForEntity($entity));
     }
 
-    #[Route(path: '/securitytxt/{id}', name: 'bitexpert.put_securitytxt', methods: ['PUT'])]
+    #[Route(path: '/robotstxt/{id}', name: 'bitexpert.put_robotstxt', methods: ['PUT'])]
     public function putAction(int $id, Request $request): Response
     {
         $entity = $this->repository->findById($id);
-        if (!$entity instanceof Securitytxt) {
+        if (!$entity instanceof Robotstxt) {
             throw $this->createNotFoundException();
         }
 
-        /** @var SecuritytxtData $data */
+        /** @var RobotstxtData $data */
         $data = $request->toArray();
         $this->mapDataToEntity($data, $entity);
 
@@ -68,12 +63,12 @@ class SecuritytxtAdminController extends AbstractController
         return $this->json($this->getDataForEntity($entity));
     }
 
-    #[Route(path: '/securitytxt', name: 'bitexpert.post_securitytxt', methods: ['POST'])]
+    #[Route(path: '/robotstxt', name: 'bitexpert.post_robotstxt', methods: ['POST'])]
     public function postAction(Request $request): Response
     {
         $entity = $this->repository->create();
 
-        /** @var SecuritytxtData $data */
+        /** @var RobotstxtData $data */
         $data = $request->toArray();
         $data['webspace_key'] = $request->get('webspace');
         $this->mapDataToEntity($data, $entity);
@@ -83,7 +78,7 @@ class SecuritytxtAdminController extends AbstractController
         return $this->json($this->getDataForEntity($entity), 201);
     }
 
-    #[Route(path: '/securitytxt/{id}', name: 'bitexpert.delete_securitytxt', methods: ['DELETE'])]
+    #[Route(path: '/robotstxt/{id}', name: 'bitexpert.delete_robotstxt', methods: ['DELETE'])]
     public function deleteAction(int $id): Response
     {
         $this->repository->remove($id);
@@ -91,44 +86,34 @@ class SecuritytxtAdminController extends AbstractController
         return $this->json(null, 204);
     }
 
-    #[Route(path: '/securitytxt', name: 'bitexpert.get_securitytxt_list', methods: ['GET'])]
+    #[Route(path: '/robotstxt', name: 'bitexpert.get_robotstxt_list', methods: ['GET'])]
     public function getListAction(): Response
     {
         $listRepresentation = $this->doctrineListRepresentationFactory->createDoctrineListRepresentation(
-            Securitytxt::RESOURCE_KEY,
+            Robotstxt::RESOURCE_KEY,
         );
 
         return $this->json($listRepresentation->toArray());
     }
 
     /**
-     * @return SecuritytxtData
+     * @return RobotstxtData
      */
-    protected function getDataForEntity(Securitytxt $entity): array
+    protected function getDataForEntity(Robotstxt $entity): array
     {
         return [
             'id' => $entity->getId(),
             'webspace_key' => $entity->getWebspaceKey(),
-            'contact' => $entity->getContact() ?? '',
-            'expires' => $entity->getExpires() ?? '',
-            'encryption' => $entity->getEncryption() ?? '',
-            'acknowledgments' => $entity->getAcknowledgments() ?? '',
-            'policy' => $entity->getPolicy() ?? '',
-            'hiring' => $entity->getHiring() ?? '',
+            'content' => $entity->getContent() ?? '',
         ];
     }
 
     /**
-     * @param SecuritytxtData $data
+     * @param RobotstxtData $data
      */
-    protected function mapDataToEntity(array $data, Securitytxt $entity): void
+    protected function mapDataToEntity(array $data, Robotstxt $entity): void
     {
         $entity->setWebspaceKey($data['webspace_key']);
-        $entity->setContact($data['contact']);
-        $entity->setExpires($data['expires']);
-        $entity->setEncryption($data['encryption'] ?? '');
-        $entity->setAcknowledgments($data['acknowledgments'] ?? '');
-        $entity->setPolicy($data['policy'] ?? '');
-        $entity->setHiring($data['hiring'] ?? '');
+        $entity->setContent($data['content'] ?? '');
     }
 }

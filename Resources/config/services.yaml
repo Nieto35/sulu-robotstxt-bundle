@@ -3,18 +3,18 @@ services:
         autowire: true
         autoconfigure: true
 
-    BitExpert\Sulu\SecuritytxtBundle\:
+    BitExpert\Sulu\RobotstxtBundle\:
         resource: '../../*'
         exclude: '../../{DependencyInjection,Entity,Migrations,Tests,Kernel.php, Wrapper}'
 
-    BitExpert\Sulu\SecuritytxtBundle\Admin\:
+    BitExpert\Sulu\RobotstxtBundle\Admin\:
         resource: '../../Admin'
         tags: ['sulu.admin', {name: 'sulu.context', context: 'admin'}]
 
-    BitExpert\Sulu\SecuritytxtBundle\Controller\Admin\:
+    BitExpert\Sulu\RobotstxtBundle\Controller\Admin\:
         resource: '../../Controller/Admin'
         tags: ['controller.service_arguments', {name: 'sulu.context', context: 'admin'}]
 
-    BitExpert\Sulu\SecuritytxtBundle\Controller\Website\:
+    BitExpert\Sulu\RobotstxtBundle\Controller\Website\:
         resource: '../../Controller/Website'
         tags: ['controller.service_arguments', {name: 'sulu.context', context: 'website'}]

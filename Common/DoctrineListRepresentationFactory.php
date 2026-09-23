@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Sulu Securitytxt bundle.
+ * This file is part of the Sulu Robotstxt bundle.
  *
  * (c) bitExpert AG
  *
@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace BitExpert\Sulu\SecuritytxtBundle\Common;
+namespace BitExpert\Sulu\RobotstxtBundle\Common;
 
 use Sulu\Component\Rest\ListBuilder\Doctrine\DoctrineListBuilder;
 use Sulu\Component\Rest\ListBuilder\Doctrine\DoctrineListBuilderFactoryInterface;

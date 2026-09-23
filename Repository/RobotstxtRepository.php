@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Sulu Securitytxt bundle.
+ * This file is part of the Sulu Robotstxt bundle.
  *
  * (c) bitExpert AG
  *
@@ -9,26 +9,26 @@
  */
 declare(strict_types=1);
 
-namespace BitExpert\Sulu\SecuritytxtBundle\Repository;
+namespace BitExpert\Sulu\RobotstxtBundle\Repository;
 
-use BitExpert\Sulu\SecuritytxtBundle\Entity\Securitytxt;
+use BitExpert\Sulu\RobotstxtBundle\Entity\Robotstxt;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Securitytxt>
+ * @extends ServiceEntityRepository<Robotstxt>
  */
-class SecuritytxtRepository extends ServiceEntityRepository
+class RobotstxtRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Securitytxt::class);
+        parent::__construct($registry, Robotstxt::class);
     }
 
-    public function create(): Securitytxt
+    public function create(): Robotstxt
     {
-        $entity = new Securitytxt();
+        $entity = new Robotstxt();
 
         $this->getEntityManager()->persist($entity);
 
@@ -40,7 +40,7 @@ class SecuritytxtRepository extends ServiceEntityRepository
      */
     public function remove(int $id): void
     {
-        /** @var Securitytxt $entity */
+        /** @var Robotstxt $entity */
         $entity = $this->getEntityManager()->getReference(
             $this->getClassName(),
             $id,
@@ -50,18 +50,18 @@ class SecuritytxtRepository extends ServiceEntityRepository
         $this->getEntityManager()->flush();
     }
 
-    public function save(Securitytxt $entity): void
+    public function save(Robotstxt $entity): void
     {
         $this->getEntityManager()->persist($entity);
         $this->getEntityManager()->flush();
     }
 
-    public function findById(int $id): ?Securitytxt
+    public function findById(int $id): ?Robotstxt
     {
         return $this->find($id);
     }
 
-    public function findByWebspaceKey(string $webspaceKey): ?Securitytxt
+    public function findByWebspaceKey(string $webspaceKey): ?Robotstxt
     {
         return $this->findOneBy(['webspace_key' => $webspaceKey]);
     }

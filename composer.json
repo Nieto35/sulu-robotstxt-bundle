@@ -1,7 +1,7 @@
 {
-  "name": "bitexpert/sulu-securitytxt-bundle",
+  "name": "bitexpert/sulu-robotstxt-bundle",
   "type": "sulu-bundle",
-  "description": "Sulu bundle for managing security.txt configuration",
+  "description": "Sulu bundle for managing robots.txt configuration",
   "minimum-stability": "stable",
   "config": {
     "sort-packages": true,
@@ -20,12 +20,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "BitExpert\\Sulu\\SecuritytxtBundle\\": ""
+      "BitExpert\\Sulu\\RobotstxtBundle\\": ""
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "BitExpert\\Sulu\\SecuritytxtBundle\\Tests\\": "Tests"
+      "BitExpert\\Sulu\\RobotstxtBundle\\Tests\\": "Tests"
     }
   },
   "require": {

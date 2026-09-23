@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<form xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/form-1.0.xsd">
+    <key>robotstxt_details</key>
+
+    <properties>
+        <property name="content" type="textarea" mandatory="true">
+            <meta>
+                <title>robotstxt.content</title>
+                <info_text lang="en">The full content of the robots.txt file for this webspace (User-agent, Disallow, Allow, Sitemap, etc.).</info_text>
+            </meta>
+
+            <params>
+                <param name="rows" value="20"/>
+            </params>
+        </property>
+    </properties>
+</form>

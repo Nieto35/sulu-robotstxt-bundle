@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="Sulu Securitytxt Bundle Coding Standard">
+<ruleset name="Sulu Robotstxt Bundle Coding Standard">
     <!-- Standard to apply -->
     <rule ref="PSR2"/>
 

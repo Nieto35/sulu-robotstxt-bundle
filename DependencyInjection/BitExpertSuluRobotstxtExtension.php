@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Sulu Securitytxt bundle.
+ * This file is part of the Sulu Robotstxt bundle.
  *
  * (c) bitExpert AG
  *
@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-namespace BitExpert\Sulu\SecuritytxtBundle\DependencyInjection;
+namespace BitExpert\Sulu\RobotstxtBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class BitExpertSuluSecuritytxtExtension extends Extension implements PrependExtensionInterface
+class BitExpertSuluRobotstxtExtension extends Extension implements PrependExtensionInterface
 {
     public function prepend(ContainerBuilder $container): void
     {
@@ -36,10 +36,10 @@ class BitExpertSuluSecuritytxtExtension extends Extension implements PrependExte
                         ],
                     ],
                     'resources' => [
-                        'securitytxt' => [
+                        'robotstxt' => [
                             'routes' => [
-                                'list' => 'bitexpert.get_securitytxt_list',
-                                'detail' => 'bitexpert.get_securitytxt',
+                                'list' => 'bitexpert.get_robotstxt_list',
+                                'detail' => 'bitexpert.get_robotstxt',
                             ],
                         ],
                     ],

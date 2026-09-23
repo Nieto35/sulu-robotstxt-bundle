@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Sulu Securitytxt bundle.
+ * This file is part of the Sulu Robotstxt bundle.
  *
  * (c) bitExpert AG
  *
@@ -9,9 +9,9 @@
  */
 declare(strict_types=1);
 
-namespace BitExpert\Sulu\SecuritytxtBundle\Admin;
+namespace BitExpert\Sulu\RobotstxtBundle\Admin;
 
-use BitExpert\Sulu\SecuritytxtBundle\Entity\Securitytxt;
+use BitExpert\Sulu\RobotstxtBundle\Entity\Robotstxt;
 use Sulu\Bundle\AdminBundle\Admin\Admin;
 use Sulu\Bundle\AdminBundle\Admin\View\ToolbarAction;
 use Sulu\Bundle\AdminBundle\Admin\View\ViewBuilderFactoryInterface;
@@ -21,12 +21,12 @@ use Sulu\Component\Security\Authorization\PermissionTypes;
 use Sulu\Component\Security\Authorization\SecurityCheckerInterface;
 use Sulu\Component\Security\Authorization\SecurityCondition;
 
-class SecuritytxtAdmin extends Admin
+class RobotstxtAdmin extends Admin
 {
     final public const SYSTEM = 'BitExpert';
-    final public const SECURITY_CONTEXT = 'bitexpert.securitytxt';
-    final public const SECURITYTXT_LIST_KEY = 'securitytxt';
-    final public const SECURITYTXT_LIST_VIEW = 'bitexpert.securitytxt_list';
+    final public const SECURITY_CONTEXT = 'bitexpert.robotstxt';
+    final public const ROBOTSTXT_LIST_KEY = 'robotstxt';
+    final public const ROBOTSTXT_LIST_VIEW = 'bitexpert.robotstxt_list';
 
     public function __construct(
         private readonly ViewBuilderFactoryInterface $viewBuilderFactory,
@@ -51,16 +51,16 @@ class SecuritytxtAdmin extends Admin
         if ($this->securityChecker->hasPermission($securityCondition, PermissionTypes::VIEW)) {
             $viewCollection->add(
                 $this->viewBuilderFactory
-                    ->createFormOverlayListViewBuilder(static::SECURITYTXT_LIST_VIEW, '/securitytxt')
-                    ->setResourceKey(Securitytxt::RESOURCE_KEY)
-                    ->setListKey(self::SECURITYTXT_LIST_KEY)
+                    ->createFormOverlayListViewBuilder(static::ROBOTSTXT_LIST_VIEW, '/robotstxt')
+                    ->setResourceKey(Robotstxt::RESOURCE_KEY)
+                    ->setListKey(self::ROBOTSTXT_LIST_KEY)
                     ->addListAdapters(['table'])
                     ->addAdapterOptions(['table' => ['skin' => 'light']])
                     ->addRouterAttributesToListRequest(['webspace'])
                     ->addRouterAttributesToFormRequest(['webspace'])
                     ->disableSearching()
-                    ->setFormKey('securitytxt_details')
-                    ->setTabTitle('securitytxt.title')
+                    ->setFormKey('robotstxt_details')
+                    ->setTabTitle('robotstxt.title')
                     ->setTabOrder(2048)
                     ->addToolbarActions($toolbarActions)
                     ->setParent(PageAdmin::WEBSPACE_TABS_VIEW)
@@ -73,7 +73,7 @@ class SecuritytxtAdmin extends Admin
     {
         return [
             self::SYSTEM => [
-                'Securitytxt' => [
+                'Robotstxt' => [
                     static::SECURITY_CONTEXT => [
                         PermissionTypes::VIEW,
                         PermissionTypes::ADD,
@@ -86,6 +86,6 @@ class SecuritytxtAdmin extends Admin
 
     public function getConfigKey(): ?string
     {
-        return 'bitexpert.securitytxt';
+        return 'bitexpert.robotstxt';
     }
 }

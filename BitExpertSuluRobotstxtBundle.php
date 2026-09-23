@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the Sulu Securitytxt bundle.
+ * This file is part of the Sulu Robotstxt bundle.
  *
  * (c) bitExpert AG
  *
@@ -9,10 +9,10 @@
  */
 declare(strict_types=1);
 
-namespace BitExpert\Sulu\SecuritytxtBundle;
+namespace BitExpert\Sulu\RobotstxtBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class BitExpertSuluSecuritytxtBundle extends Bundle
+class BitExpertSuluRobotstxtBundle extends Bundle
 {
 }

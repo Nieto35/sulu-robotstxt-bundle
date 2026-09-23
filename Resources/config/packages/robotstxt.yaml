@@ -1,0 +1,6 @@
+sulu_admin:
+    resources:
+        robotstxt:
+            routes:
+                list: bitexpert.get_robotstxt_list
+                detail: bitexpert.get_robotstxt
