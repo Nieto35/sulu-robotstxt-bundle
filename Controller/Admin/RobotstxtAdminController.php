@@ -87,10 +87,17 @@ class RobotstxtAdminController extends AbstractController
     }
 
     #[Route(path: '/robotstxt', name: 'bitexpert.get_robotstxt_list', methods: ['GET'])]
-    public function getListAction(): Response
+    public function getListAction(Request $request): Response
     {
+        $filters = [];
+        $webspace = $request->query->get('webspace');
+        if ($webspace !== null) {
+            $filters['webspace_key'] = $webspace;
+        }
+
         $listRepresentation = $this->doctrineListRepresentationFactory->createDoctrineListRepresentation(
             Robotstxt::RESOURCE_KEY,
+            $filters,
         );
 
         return $this->json($listRepresentation->toArray());

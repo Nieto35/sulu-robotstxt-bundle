@@ -8,6 +8,11 @@
             <entity-name>BitExpert\Sulu\RobotstxtBundle\Entity\Robotstxt</entity-name>
         </property>
 
+        <property name="webspace_key" visibility="no" translation="robotstxt.webspace_key">
+            <field-name>webspace_key</field-name>
+            <entity-name>BitExpert\Sulu\RobotstxtBundle\Entity\Robotstxt</entity-name>
+        </property>
+
         <property name="content" visibility="always" searchability="yes" translation="robotstxt.content">
             <field-name>content</field-name>
             <entity-name>BitExpert\Sulu\RobotstxtBundle\Entity\Robotstxt</entity-name>
