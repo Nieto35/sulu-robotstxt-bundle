@@ -23,7 +23,7 @@ use Sulu\Component\Security\Authorization\SecurityCondition;
 
 class RobotstxtAdmin extends Admin
 {
-    final public const SYSTEM = 'BitExpert';
+    final public const SYSTEM = self::SULU_ADMIN_SECURITY_SYSTEM;
     final public const SECURITY_CONTEXT = 'bitexpert.robotstxt';
     final public const ROBOTSTXT_LIST_KEY = 'robotstxt';
     final public const ROBOTSTXT_LIST_VIEW = 'bitexpert.robotstxt_list';
