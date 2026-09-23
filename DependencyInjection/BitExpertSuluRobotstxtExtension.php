@@ -51,6 +51,14 @@ class BitExpertSuluRobotstxtExtension extends Extension implements PrependExtens
             'default_locale' => 'en',
             'translator' => ['paths' => [__DIR__.'/../Resources/config/translations/']],
         ]);
+
+        if ($container->hasExtension('doctrine_migrations')) {
+            $container->prependExtensionConfig('doctrine_migrations', [
+                'migrations_paths' => [
+                    'BitExpert\\Sulu\\RobotstxtBundle\\Migrations' => __DIR__.'/../Migrations',
+                ],
+            ]);
+        }
     }
 
     public function load(array $configs, ContainerBuilder $container): void

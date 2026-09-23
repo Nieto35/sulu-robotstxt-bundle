@@ -30,9 +30,9 @@ robotstxt_website:
   resource: "@BitExpertSuluRobotstxtBundle/Resources/config/routing_website.yaml"
 ```
 
-3. Run Doctrine Schema Update
+3. Run the bundled migration (the bundle registers its own migrations path automatically)
 ```bash
-./bin/adminconsole doctrine:schema:update -f
+./bin/adminconsole doctrine:migrations:migrate
 ```
 
 ## Usage
